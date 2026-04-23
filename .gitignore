@@ -3,7 +3,7 @@
 # ========================================
 
 # 1. 빌드 결과물 (명령어로 다시 생성 가능하므로 제외)
-backend/target/
+Cap2026/backend/target/
 frontend/build/
 frontend/node_modules/
 
