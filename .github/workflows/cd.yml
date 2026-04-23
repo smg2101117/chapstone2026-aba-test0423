@@ -37,4 +37,5 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/yj-backend:${{ github.sha }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/yj-backend:latest
-          docker push ${{ secrets
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/yj-frontend:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/yj-frontend:latest
