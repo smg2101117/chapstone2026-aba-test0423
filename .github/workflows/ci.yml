@@ -22,7 +22,7 @@ jobs:
 
       - name: Maven 빌드 & 테스트
         run: |
-          cd backend
+          cd Cap2026/backend
           ./mvnw clean package -DskipTests
 
   # ── Job 2: 프론트엔드 빌드 ──
