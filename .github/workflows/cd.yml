@@ -23,14 +23,15 @@ jobs:
       # 1. 백엔드 이미지 빌드 (태그 동시 지정)
       - name: Backend Docker Build
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/yj-backend:${{ github.sha }} ./backend
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/yj-backend:${{ github.sha }} ./Cap2026/backend
           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/yj-backend:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/yj-backend:latest
-
+      
       # 2. 프런트엔드 이미지 빌드 (태그 동시 지정)
       - name: Frontend Docker Build
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/yj-frontend:${{ github.sha }} ./frontend
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/yj-frontend:${{ github.sha }} ./Cap2026/frontend
           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/yj-frontend:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/yj-frontend:latest
+
 
       # 3. Docker Hub에 Push
       - name: Docker Hub Push
