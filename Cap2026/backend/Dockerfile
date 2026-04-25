@@ -1,7 +1,11 @@
-# 1. 자바 실행 환경(JDK) 기반 이미지 선택
+# 1단계: 빌드
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# 2단계: 실행
 FROM eclipse-temurin:17-jdk-jammy
-# 2. 빌드된 jar 파일을 컨테이너 내부로 복사
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-# 3. 애플리케이션 실행
+WORKDIR /
+COPY --from=builder /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
